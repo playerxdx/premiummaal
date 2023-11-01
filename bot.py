@@ -6,7 +6,7 @@ import os
 from threading import Thread
 from flask import Flask
 
-
+# nltk
 nltk.download("words")
 
 API_ID = os.environ.get("API_ID") 
