@@ -40,7 +40,7 @@ your_turn_pattern = r"Turn: Word9 Helper"
 async def start(client, message):
     await message.reply("Hi, I can play word9 game with you")
 
-@app.on_message(filters.text & filters.group)
+@app.on_message(filters.text)
 def handle_incoming_message(client, message):
     puzzle_text = message.text
 
