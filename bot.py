@@ -35,7 +35,7 @@ min_length_pattern = r"include at least (\d+) letters"
 trigger_pattern = r"Turn: ᖇᗩᕼᑌᒪ.*"
 
 
-@app.on_message(filters.me & filters.command("ping", prefixes="."))
+@app.on_message(filters.me & filters.command("ping", prefixes="!"))
 async def start(client, message):
     await message.edit("pong!")
 
