@@ -27,18 +27,18 @@ server = Flask(__name__)
 # flask home route
 @server.route("/")
 def home():
-    return "I'm alive"
+    return "Bot is running"
 
 # Regular expressions to match the criteria
-starting_letter_pattern = r"start with ([A-Z])"  #Your word must start with S and include at least 10 letters
+starting_letter_pattern = r"start with ([A-Z])"
 min_length_pattern = r"include at least (\d+) letters"
-time_limit_pattern = r"You have (\d+)s to answer."
 trigger_pattern = r"Turn: ᖇᗩᕼᑌᒪ.*"
 
 
-@app.on_message(filters.me & filters.command("start", prefixes="."))
+@app.on_message(filters.me & filters.command("ping", prefixes="."))
 async def start(client, message):
-    await message.edit("Hi, I can play word9 game with you")
+    await message.edit("pong!")
+
 
 @app.on_message(filters.text)
 def handle_incoming_message(client, message):
@@ -48,9 +48,8 @@ def handle_incoming_message(client, message):
     if re.search(trigger_pattern, puzzle_text):
         starting_letter_match = re.search(starting_letter_pattern, puzzle_text)
         min_length_match = re.search(min_length_pattern, puzzle_text)
-        time_limit_match = re.search(time_limit_pattern, puzzle_text)
 
-        if starting_letter_match and min_length_match and time_limit_match:
+        if starting_letter_match and min_length_match:
             starting_letter = starting_letter_match.group(1)
             min_length = int(min_length_match.group(1))
 
@@ -64,12 +63,12 @@ def handle_incoming_message(client, message):
                 response_message = f"{random_word}"
                 client.send_message(message.chat.id, response_message)
             else:
-                client.send_message(message.chat.id, "No valid words found for the given criteria.")
+                print("No valid words found for the given criteria.")
         else:
             print("Criteria not found in the puzzle text.")
     return
     
-
+    
 def run():
     server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 8080)))
 
