@@ -36,7 +36,7 @@ time_limit_pattern = r"You have (\d+)s to answer."
 game_start_pattern = r"30s left to /join."
 your_turn_pattern = r"Turn: Word9 Helper"
 
-@app.on_message(filters.command("start") & filters.private)
+@app.on_message(filters.command("start"))
 async def start(client, message):
     await message.reply("Hi, I can play word9 game with you")
 
