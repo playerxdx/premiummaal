@@ -34,7 +34,7 @@ starting_letter_pattern = r"start with ([A-Z])"
 min_length_pattern = r"include at least (\d+) letters"
 time_limit_pattern = r"You have (\d+)s to answer."
 
-@app.on_message(filters.command("start"), prefixes=".")
+@app.on_message(filters.me & filters.command("start", prefixes="."))
 async def start(client, message):
     await message.edit("Hi, I can play word9 game with you")
 
