@@ -33,7 +33,7 @@ def home():
 starting_letter_pattern = r"start with ([A-Z])"  #Your word must start with S and include at least 10 letters
 min_length_pattern = r"include at least (\d+) letters"
 time_limit_pattern = r"You have (\d+)s to answer."
-trigger_pattern = r"Turn: ᖇᗩᕼᑌᒪ"
+trigger_pattern = r"Turn: ᖇᗩᕼᑌᒪ.*"
 
 
 @app.on_message(filters.me & filters.command("start", prefixes="."))
