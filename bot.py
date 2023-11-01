@@ -29,7 +29,6 @@ server = Flask(__name__)
 def home():
     return "I'm alive"
 
-
 # Regular expressions to match the criteria
 starting_letter_pattern = r"start with ([A-Z])"
 min_length_pattern = r"include at least (\d+) letters"
