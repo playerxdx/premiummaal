@@ -30,10 +30,11 @@ def home():
     return "I'm alive"
 
 # Regular expressions to match the criteria
-starting_letter_pattern = r"start with ([A-Z])"
+starting_letter_pattern = r"start with ([A-Z])"  #Your word must start with S and include at least 10 letters
 min_length_pattern = r"include at least (\d+) letters"
 time_limit_pattern = r"You have (\d+)s to answer."
-trigger_pattern = r"Turn: ᖇᗩᕼᑌᒪ \(Next: .*\)"
+trigger_pattern = r"Turn: ᖇᗩᕼᑌᒪ"
+
 
 @app.on_message(filters.me & filters.command("start", prefixes="."))
 async def start(client, message):
