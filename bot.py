@@ -34,9 +34,13 @@ starting_letter_pattern = r"start with ([A-Z])"
 min_length_pattern = r"include at least (\d+) letters"
 time_limit_pattern = r"You have (\d+)s to answer."
 game_start_pattern = r"A classic game is starting."
-your_turn_pattern = r"Turn: ()"
+your_turn_pattern = r"Turn: (Word9 Helper)"
 
-@app.on_message(filters.text)
+@app.on_message(filters.command("start") & filters.private)
+async def start(client, message):
+    await message.reply("Hi, I can play word9 game with you")
+
+@app.on_message(filters.text & filters.group)
 def handle_incoming_message(client, message):
     puzzle_text = message.text
 
