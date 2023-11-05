@@ -1,2 +1,3 @@
 # Word9
-A companion telegram bot that can Play word game with word9Bot
+A companion telegram userbot that can Play word game with word9Bot
+
