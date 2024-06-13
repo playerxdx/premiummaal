@@ -16,9 +16,9 @@ SESSION = os.environ.get("SESSION")
 # Bot
 app = Client(
     "word9",
-    api_id=API_ID,
-    api_hash=API_HASH,
-    session_string=SESSION
+    api_id=28369218,
+    api_hash=a9910b566d54fc9ba883ad5f99eab053,
+    session_string=BQGw4UIAjSFeqaS9X01rh7mxv7eyTW435uEwvN5LGy39KwK3Qz8BsdlzPmQTnwQQd_eYvmrawkxxQgyDT9Eg9z3d6B66XB_BhVbcCqXhWvXuB1kyGEXDoMvs1TBeg599ltfYyqq7qt4Jd-uKW_uYpZt-6coMTqbgyriGBX-KQpuaARjdxW8vrKgHrgO86t00Go8ROGozvLBxXtMbCNb-EtV1KRftg6qd7URsIE6m2FmF9BzuGpl4KK3DUatIQc_J-HZ1wlqIn3LL18rEZIf3ApeYk5IUYbCVpdE-dArifBFMM3py3-ffnUDk4OwEW-k6oRho8C7it1XY51N_Mz_HEl9yfg0WSQAAAAGbqk6UAA
 )
 
 server = Flask(__name__)
@@ -29,7 +29,7 @@ def home():
 
 starting_letter_pattern = r"start with ([A-Z])"
 min_length_pattern = r"include at least (\d+) letters"
-trigger_pattern = r"Turn: ᖇᗩᕼᑌᒪ.*" # Replace "ᖇᗩᕼᑌᒪ" with your own trigger pattern (Your telegram profile name)
+trigger_pattern = r"Turn: ☭.꯭𝅃꯭᳚ ⃪༎꯭Ᏻ꯭ᴏ꯭᪺᪲᪲᪲᪲᪲᪲᪲᪲᪳᪳᪲᪲᪲ᴅ꯭ S꯭ʜ꯭֟፝︢︣ᴀ꯭ᴅ꯭ᴏ꯭᪺᪲᪲᪲᪲᪲᪲᪲᪲᪳᪳᪲᪲ᴡ ꯭꯭🔥.*" # Replace "ᖇᗩᕼᑌᒪ" with your own trigger pattern (Your telegram profile name)
 
 
 @app.on_message(filters.me & filters.command("ping", prefixes="!"))
