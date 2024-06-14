@@ -5,20 +5,20 @@ import random
 import os
 from threading import Thread
 from flask import Flask
-
+import config
 # nltk
 nltk.download("words")
 
-API_ID = os.environ.get("API_ID") 
-API_HASH = os.environ.get("API_HASH") 
-SESSION = os.environ.get("SESSION")
+API_ID = config.API_ID 
+API_HASH = config.API_HASH
+SESSION = config.STRING_SESSION
 
 # Bot
 app = Client(
     "word9",
-    api_id=28369218,
-    api_hash=a9910b566d54fc9ba883ad5f99eab053,
-    session_string=1BVtsOIgBu7tU1LfGAHRnU6L0okaPCYz4xrZhokl16pzsA-_qqY9d2jhmzrWsvi6O7Beik-Sbt1r41_xvZhXISLuL1S8BHYHXAD3ZdHQXe5B5IKmxek69U87xao0UcKnGY-fPN9b5O9k4RkLl5VdzYBmQUmC2-bjrnZA8jnsxrjtKhcgcaxGPJ8MCCMWJ4YdNvbxkq_4IB6ICDpo2b69ysIBhzH7iTriOnwrkzNG3FFa21hJC75VPB9tJ_-v08iM0wD9dy-b0fikpYBdYSM2VnXCRGgqepyfQnAaqjizZGJI5ZuM0ud-EU2hfAtHZPAdLiONhhL_g9Z2zGqKbUc1lzMjyzCQub1I=
+    api_id=API_ID,
+    api_hash=API_HASH,
+    session_string=SESSION
 )
 
 server = Flask(__name__)
@@ -29,7 +29,7 @@ def home():
 
 starting_letter_pattern = r"start with ([A-Z])"
 min_length_pattern = r"include at least (\d+) letters"
-trigger_pattern = r"Turn: ☭.꯭𝅃꯭᳚ ⃪༎꯭Ᏻ꯭ᴏ꯭᪺᪲᪲᪲᪲᪲᪲᪲᪲᪳᪳᪲᪲᪲ᴅ꯭ S꯭ʜ꯭֟፝︢︣ᴀ꯭ᴅ꯭ᴏ꯭᪺᪲᪲᪲᪲᪲᪲᪲᪲᪳᪳᪲᪲ᴡ ꯭꯭🔥.*" # Replace "ᖇᗩᕼᑌᒪ" with your own trigger pattern (Your telegram profile name)
+trigger_pattern = r"Turn: shizukaroo.*" # Replace "ᖇᗩᕼᑌᒪ" with your own trigger pattern (Your telegram profile name)
 
 
 @app.on_message(filters.me & filters.command("ping", prefixes="!"))
@@ -58,9 +58,9 @@ def handle_incoming_message(client, message):
                 response_message = f"{random_word}"
                 client.send_message(message.chat.id, response_message)
             else:
-                print("No valid words found for the given criteria.")
+                print("i am out")
         else:
-            print("Criteria not found in the puzzle text.")
+            print("ye wala nhi khelunga")
     return
     
     
