@@ -38,9 +38,10 @@ async def start(client, message):
 
 
 @app.on_message(filters.text)
-def handle_incoming_message(client, message):
+async def handle_incoming_message(client, message):
     print(69)
     puzzle_text = message.text
+    print(70)
     if re.search(trigger_pattern, puzzle_text):
         starting_letter_match = re.search(starting_letter_pattern, puzzle_text)
         min_length_match = re.search(min_length_pattern, puzzle_text)
@@ -57,7 +58,7 @@ def handle_incoming_message(client, message):
                 random_word = random.choice(valid_words)
 
                 response_message = f"{random_word}"
-                client.send_message(message.chat.id, response_message)
+                await client.send_message(message.chat.id, response_message)
             else:
                 print("i am out")
         else:
