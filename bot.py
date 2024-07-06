@@ -39,9 +39,7 @@ async def start(client, message):
 
 @app.on_message(filters.text)
 async def handle_incoming_message(client, message):
-    print(69)
     puzzle_text = message.text
-    print(70)
     if re.search(trigger_pattern, puzzle_text):
         starting_letter_match = re.search(starting_letter_pattern, puzzle_text)
         min_length_match = re.search(min_length_pattern, puzzle_text)
